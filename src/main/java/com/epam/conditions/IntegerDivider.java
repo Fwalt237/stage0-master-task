@@ -8,7 +8,7 @@ public class IntegerDivider {
         }else if((dividend/divider)*divider == dividend){
             System.out.println("can be divided completely");
         } else{
-            System.out.println("can't divide completely");
+            System.out.println("can not divide completely");
         }
     }
 

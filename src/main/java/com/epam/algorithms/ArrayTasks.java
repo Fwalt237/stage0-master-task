@@ -1,6 +1,6 @@
 package com.epam.algorithms;
 
-import java.util.Arrays;
+
 
 /**
  * Here are the tasks for working with the arrays.
@@ -114,7 +114,7 @@ public class ArrayTasks {
         return onlyPositives;
     }
 
-    /**
+    /*
      * Return a sorted, ragged, two-dimensional int[][] array following these rules: Incoming one-dimensional arrays
      * must be arranged in ascending order of their length; numbers in all one-dimensional arrays must be in ascending
      * order.
@@ -122,7 +122,7 @@ public class ArrayTasks {
      * Example:
      * <p>
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
-     */
+
     public int[][] sortRaggedArray(int[][] arr) {
         Arrays.sort(arr[0]);
         Arrays.sort(arr[1]);
@@ -133,6 +133,6 @@ public class ArrayTasks {
             return temp;
         }
         return arr;
-    }
+    }*/
 
 }
