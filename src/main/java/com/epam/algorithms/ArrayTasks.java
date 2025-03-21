@@ -66,7 +66,7 @@ public class ArrayTasks {
     public int findIndexOfNumber(int[] arr, int number) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == number) {
-                return i+1;
+                return i;
             }
         }
         return -1;
@@ -106,7 +106,7 @@ public class ArrayTasks {
         int[] onlyPositives = new int[arr.length-numberOfNegatives];
         int j = 0;
         for (int k : arr) {
-            if (k > 0) {
+            if (k >= 0) {
                 onlyPositives[j] = k;
                 j++;
             }
@@ -122,17 +122,44 @@ public class ArrayTasks {
      * Example:
      * <p>
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
-
+*/
     public int[][] sortRaggedArray(int[][] arr) {
-        Arrays.sort(arr[0]);
-        Arrays.sort(arr[1]);
-        if(arr[1].length > arr[0].length){
-            int[][] temp = new int[arr.length][];
-            temp[0]= arr[1];
-            temp[1] = arr[0];
-            return temp;
+        if(arr == null || arr.length == 0){
+            return arr;
         }
+        for (int[] arr1 : arr) {
+            bubbleSort(arr1);
+        }
+        bubbleSortLength(arr);
+
         return arr;
-    }*/
+    }
+
+    private void bubbleSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i ; j < arr.length -i -1; j++) {
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+
+    private void bubbleSortLength(int[][] arr) {
+        if(arr == null || arr.length == 0){
+            return;
+        }
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if(arr[j].length > arr[j+1].length){
+                    int[] temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
 
 }
